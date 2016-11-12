@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+<style>
+	body{
+	margin:0px;
+	}
+	svg{
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+</style>
+</head>
+<body>
+<svg id="svg" width="100%" height="100%">
+</svg>
+<script src="../../static/snap.svg-min.js"></script>
+<script>
+	var svg = Snap("#svg");
+	var rect1 = svg.paper.rect(100,100,200,200).attr({
+		"fill":"none",
+		"stroke":"black",
+		"stroke-width":"2"
+	});
+
+	var bbox = rect1.getBBox();	
+
+	var cir1 = svg.paper.circle(bbox.cx,bbox.cy,bbox.r0).attr({
+		"fill":"none",
+		"stroke-width":"1",
+		"stroke":"black"
+	});;	
+
+	console.log( 
+	"圆心cx:" + rect1.getBBox().cx	+ "<br />" +
+	"圆心cy:" + rect1.getBBox().cy	+ "<br />" +
+	"左侧x:" + rect1.getBBox().x	+ "<br />" +
+	"右侧x2:" + rect1.getBBox().x2	+ "<br />" +
+	"顶部y:" + rect1.getBBox().y + "<br />" +  
+	"底部y2:" + rect1.getBBox().y2 + "<br />" +  
+	"宽w:" + rect1.getBBox().w + "<br />" +  
+	"高h:" + rect1.getBBox().h + "<br />" +
+	"路径path:" + rect1.getBBox().path + "<br />" +  
+	"完全闭合圆半径r0:" + rect1.getBBox().r0 + "<br />" +  
+	"能完全闭合最小圆半径r1:" + rect1.getBBox().r1 + "<br />" +  
+	"能完全闭合最大圆半径r2:" + rect1.getBBox().r2 + "<br />" +
+	"坐标定位及宽高vb:" + rect1.getBBox().vb + "<br />"  );
+</script>
+</body>
+</html>

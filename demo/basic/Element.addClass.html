@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+	<style>
+		.new{
+			fill:red;
+			stroke:yellow;
+	}
+	</style>
+</head>
+<body>
+<svg id="svg" width="200" height="100">
+</svg>
+<script src="http://www.jonnypeng.com/js/snap.svg.js"></script>		
+<script>
+	var s = Snap("#svg");
+	var svg1 = s.paper.circle(30,30,30).attr({"fill":"black","stroke":"red","stroke-width":"2"});
+	document.querySelector("#svg").addEventListener("click",yes);
+	function yes(){
+svg1.addClass("new");
+	};
+</script>
+</body>
+</html>

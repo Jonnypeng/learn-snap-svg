@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+<style>
+	body{
+	margin:0px;
+	}
+	svg{
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+</style>
+</head>
+<body>
+<svg id="svg" width="100%" height="100%"></svg>
+<script src="http://www.jonnypeng.com/js/snap.svg.js"></script>		
+<script>
+	var svg = Snap("#svg");
+	var origin_x,origin_y;
+	var cir =svg.paper.circle(100,100,100).attr({
+	"fill":"blue"
+	});
+	var targetCir = cir.clone().attr({
+	"stroke":"black",
+	"stroke-width":"1",
+	"fill":"none",
+	"cx":"200",
+	"cy":"200"
+	});
+	cir.drag(move,start,end);	
+	function move(dx,dy){
+		cir.attr({
+			"cx":origin_x + dx,
+			"cy":origin_y + dy,
+			"fill":"yellow"
+		});
+	}
+	function start(x,y){
+		origin_x =	parseInt(cir.asPX("cx")); 
+		origin_y =	parseInt(cir.asPX("cy")); 
+		cir.attr({
+			"fill":"red"
+		});
+		cir.animate({
+			"r":10
+		},1000,mina.bounce);
+	}
+	function end(){
+		cir.attr({
+			"fill":"blue"
+		});
+		cir.animate({
+			"r":100
+		},1000,mina.bounce);
+		if(cir.asPX("cx")==targetCir.asPX("cx") && cir.asPX("cy")==targetCir.asPX("cy")){
+		cir.animate({
+			"r":10
+		},1000,mina.bounce);
+				alert("you win");
+				//this.undrag();
+		}	
+	}
+</script>
+</body>
+</html>
