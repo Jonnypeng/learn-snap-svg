@@ -1,53 +1,34 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<?php 
-	$key = 'Element.innerSVG()';
-	include('../_include/header.php'); 
-?>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+<style>
+	body{
+	margin:0px;
+	}
+	svg{
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+</style>
 </head>
-
 <body>
-<?php 
-	include('../_include/nav.php'); 
-?>
-
-<div id="zxxBody" class="zxx_body">
-	<div id="zxxSlide" class="zxx_side">
-    	<?php include('../_include/slide.php'); ?>
-    </div>
-    <div class="zxx_api_detail">
-    	<div class="zxx_api_content">
-        	<h1 class="zxx_api_h1"><sub>Snap.svg demo之</sub><?php echo $key; ?></h1>
-        	<h2>Element.inAnim()</h2>
-            <p>返回元素内容的SVG代码。近似于HTML中的<code>innerHTML</code>方法。</p>
-            <h3>返回值</h3>
-            <p>字符串。SVG字符串代码。</p>
-            <h3>测试代码</h3>            
-            <pre>&lt;svg id="svg" width="200" height="100">&lt;/svg></pre>
-            <pre>var svg = Snap("#svg");
-svg.paper.circle(50, 50, 40);
-console.log(svg.<mark>innerSVG()</mark>);
-<span class="comment">// 结果是：
-// &lt;desc>Created with Snap&lt;/desc>&lt;defs/>&lt;circle cx="50" cy="50" r="40"/></span></pre>
-            <h3>效果</h3>
-            <p>
-            	<svg id="svg" width="200" height="100"></svg>                
-            </p>
-        </div>
-    </div>
-</div>
-
-<?php 
-	include('../_include/footer.php'); 
-?>
+<svg id="svg" width="100%" height="100%"></svg>
+<script src="../../static/snap.svg-min.js"></script>
 <script>
-var svg = Snap("#svg");
-svg.paper.circle(50, 50, 40);
-window.console &&
-console.log(svg.innerSVG());
-// 结果是：
-// <desc>Created with Snap</desc><defs/><circle cx="50" cy="50" r="40"/> 
+	var svg= Snap("#svg");
+	var rect1 = svg.paper.rect(10,10,300,200).attr({
+	"fill":"red",
+	"stroke":"black",
+	"stroke-width":"2"
+	});
+	rect1.click(function (){
+		console.log(svg.innerSVG());	
+	});	
+	
 </script>
 </body>
 </html>

@@ -1,80 +1,64 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<?php 
-	$key = 'Element.insertBefore()';
-	include('../_include/header.php'); 
-?>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+<style>
+	body{
+	margin:0px;
+	}
+	svg{
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+</style>
 </head>
-
 <body>
-<?php 
-	include('../_include/nav.php'); 
-?>
-
-<div id="zxxBody" class="zxx_body">
-	<div id="zxxSlide" class="zxx_side">
-    	<?php include('../_include/slide.php'); ?>
-    </div>
-    <div class="zxx_api_detail">
-    	<div class="zxx_api_content">
-        	<h1 class="zxx_api_h1"><sub>Snap.svg demo之</sub><?php echo $key; ?></h1>
-        	<h2>Element.insertAfter(el)</h2>
-        	<p>插入当前元素到给定元素的前面。也就是<code>Element</code>到<code>el</code>的前面。</p>
-            <h3>参数</h3>
-            <ul>
-            	<li><code>el</code> 元素。被插入的元素。</li>
-            </ul>
-            <h3>返回值</h3>
-            <p>元素。返回父元素。</p>
-            <h3>使用</h3>
-            <pre>&lt;svg id="svg" width="200" height="100">&lt;/svg>
-            
-&lt;input id="button" type="button" value="点击改变圈圈的顺序"></pre>
-            <pre>var svg = Snap("#svg");
-var c1 = svg.paper.circle(50, 50, 40).attr({
-    fill: "#f00"	<span class="comment">// 红色</span>
-});
-var c2 = svg.paper.circle(100, 50, 40).attr({
-    fill: "#00f"	<span class="comment">// 蓝色</span>
-});
-
-<span class="comment">// 事件</span>
-document.querySelector("#button").addEventListener("click", function() {
-    c2.<mark>insertBefore</mark>(c1);	
-});</pre>
-            <h3>效果</h3>
-            <p>
-            	<svg id="svg" width="200" height="100"></svg>                
-            </p>
-            <p><input id="button" type="button" class="zxx_api_button" value="点击改变圈圈的顺序"></p>
-            <h3>HTML变化</h3>
-            <p><strong>默认：</strong></p>
-            <p><img src="../../static/img/demo-snap-svg-12.png"><tip data-content="截图"></tip></p>
-            <p><strong>点击按钮后：</strong></p>
-            <p><img src="../../static/img/demo-snap-svg-13.png"><tip data-content="截图"></tip></p>
-        </div>
-    </div>
-</div>
-
-<?php 
-	include('../_include/footer.php'); 
-?>
+<svg id="svg" width="100%" height="100%">
+</svg>
+<script src="../../static/snap.svg-min.js"></script>
 <script>
 var svg = Snap("#svg");
-var c1 = svg.paper.circle(50, 50, 40).attr({
-	fill: "#f00"	// 红色
+var cir1 = svg.paper.circle(100,100,90).attr({
+	"fill":"red",
+	"stroke":"black",
+	"stroke-width":"2"
 });
-var c2 = svg.paper.circle(100, 50, 40).attr({
-	fill: "#00f"	// 蓝色
+var cir2 = svg.paper.circle(150,100,90).attr({
+	"fill":"blue",
+	"stroke":"black",
+	"stroke-width":"2"
 });
+var btn = svg.paper.rect(75,210,80,40).attr({
+	"rx":"5",
+	"ry":"5",
+	"fill":"green",
+});
+var onOff = true;
+btn.click(function (){
+				if(onOff){
+	cir1.insertAfter(cir2);
+	cir1.animate({
+	"r":"40"
+	},1000,mina.bounce);
+	cir2.animate({
+	"r":"90"
+	},1000,mina.bounce);
+	onOff = false;
+				}else{
+	cir1.insertBefore(cir2);	
+	cir2.animate({
+	"r":"40"
+	},1000,mina.bounce);
+	cir1.animate({
+	"r":"90"
+	},1000,mina.bounce);
+	onOff = true;
+				}
+})
 
-// 事件
-if (document.addEventListener) {
-	document.querySelector("#button").addEventListener("click", function() {
-		c2.insertBefore(c1);	
-	});
-}
 </script>
 </body>
 </html>
