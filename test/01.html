@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title></title>
+</head>
+<body>
+				<svg id="svg" width="300" height="300">
+					<circle id="c1" cx="150" cy="150" r="50" fill="red"></circle>
+				</svg>
+			 <script src="//cdn.bootcss.com/snap.svg/0.4.1/snap.svg-min.js"></script>
+			 <script>
+				var c1 = Snap("#c1");
+				setTimeout(fn,1000);
+				function fn(){
+								c1.animate({
+									"r":"100"
+								},1000,mina.bounce);
+				}
+			 </script>
+</body>
+</html>

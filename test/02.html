@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+				<head>
+								<meta charset="UTF-8">
+								<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+								<title></title>
+				</head>
+				<body>
+								<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+								<path id="svg_1" d="m43.5,63.5l54.5,-42.5l93,10l55,37" stroke-width="1.5" stroke="#000" fill="#fff"/>
+								</svg>
+								<script src="//cdn.bootcss.com/snap.svg/0.4.1/snap.svg-min.js"></script>
+								<script>
+												var s1 = Snap("#svg_1");
+												setTimeout(fn,1000);
+												function fn(){
+													s1.animate({
+													"d":"m44.5,61.5c1,0 84,11 84,10c0,-1 62,63 61.5,62.5c0.5,0.5 -96.5,56.5 -97,56"
+													},1000,mina.bounce);
+												};
+								</script>
+				</body>
+</html>
