@@ -1,34 +1,28 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<?php 
-	$key = 'Element.toString()';
-	include('../_include/header.php'); 
-?>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+<style>
+	body{
+	margin:0px;
+	}
+	svg{
+		position:fixed;
+		left:0px;
+		top:0px;
+	}
+</style>
 </head>
-
 <body>
-<?php 
-	include('../_include/nav.php'); 
-?>
-
-<div id="zxxBody" class="zxx_body">
-	<div id="zxxSlide" class="zxx_side">
-    	<?php include('../_include/slide.php'); ?>
-    </div>
-    <div class="zxx_api_detail">
-    	<div class="zxx_api_content">
-        	<h1><sub>Snap.svg demo之</sub><?php echo $key; ?></h1>
-        	<p>可参见<a href="Paper.toString.php">Paper.toString()</a>.</p>
-        </div>
-    </div>
-</div>
-
-<?php 
-	include('../_include/footer.php'); 
-?>
+<svg id="svg" width="100%" height="100%">
+	<rect id="r1" x="5" y="5" width="100" height="50" fill="red" stroke="black" stroke-width="1"></rect>
+</svg>
+<script src="../../static/snap.svg-min.js"></script>
 <script>
-
+var r1 = Snap("#r1");	
+console.log(r1.toString());
 </script>
 </body>
 </html>
